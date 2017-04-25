@@ -1,0 +1,156 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<h1>Load participant data</h1>
+			<p>
+				Click the button below to load this participant's previous data.
+			</p>
+			<p class="form-group">
+				<button class="btn btn-primary load-button">Load data</button>
+			</p>
+
+			<p>
+				<div class="alert alert-danger match-error" role="alert" style="display:none">Error! The RADAR IDs do not match, so the file cannot be loaded. Please try again.</div>
+				<div class="alert alert-danger general-error" role="alert" style="display:none">Error! The file you attempted to load was invalid. Try again using a different file.</div>
+				<div class="alert alert-success load-success" role="alert" style="display:none">Success! The data has been loaded. Please click the right arrow to continue.</div>
+			</p>
+
+			<input style="display:none;" id="fileDialog" accept=".json" type="file" />
+		</div>
+	</div>
+</div>
+<script>
+function updateNetwork() {
+
+	// get the ego node id
+	var oldEgo = window.previousNetwork.getEgo();
+	var currentEgo = window.network.getEgo();
+
+	// Remove all edges that arent dyad edges coming from ego;
+	var edges = window.previousNetwork.getEdges({}, function (results) {
+		var filteredResults = [];
+		$.each(results, function(index,value) {
+			// Not from ego, or if from ego not a dyad edge, or if from ego not a role edge
+			if (value.from !== oldEgo.id) {
+				// if edge doesnt come from ego
+				filteredResults.push(value);
+			} else {
+				if (value.type !=='Dyad' && value.type !=='Role') {
+					// if edge comes from ego and isnt type dyad
+					filteredResults.push(value);
+				}
+			}
+		});
+
+		return filteredResults;
+	});
+	window.previousNetwork.removeEdges(edges);
+
+	// Make sure protected IDs are copied across to the new ego
+
+	// First wave data doesnt have reserved IDs set, so we need to manually create the list now.
+	if (!oldEgo.reserved_ids) {
+		oldEgo.reserved_ids = [];
+	}
+
+	if (oldEgo.reserved_ids.length < window.previousNetwork.getNodes().length) {
+		$.each(window.previousNetwork.getNodes(), function(index, value) {
+			oldEgo.reserved_ids.push(value.id);
+		});
+	}
+
+	// Copy the reserved IDs from old ego to new ego
+	currentEgo.reserved_ids = oldEgo.reserved_ids;
+
+
+	// Remove unwanted properties from dyad edge
+	var safeProperties = ['age_p_t0','fname_t0','label','ng_t0','from','to','id','type','lname_t0','nname_t0'];
+
+	$.each(window.previousNetwork.edges, function(index,value) {
+		if (value.type === 'Dyad') {
+			var newValue = {};
+			var edgeProperties = Object.keys(value);
+			var toDelete = window.tools.arrayDifference(edgeProperties,safeProperties);
+			$.each(safeProperties, function(edgeIndex, edgeValue) {
+				newValue[edgeValue] = value[edgeValue];
+			});
+			window.previousNetwork.edges[index] = newValue;
+		}
+
+	});
+
+	// Remove event handler
+	window.removeEventListener('changeStageStart', updateNetwork, false);
+}
+
+
+window.addEventListener('changeStageStart', updateNetwork, false);
+
+
+// If any data has been entered, prompt to reset the session when the load button is clicked
+$('.load-button').on('click', function() {
+	if (window.network.getNodes().length > 1) {
+		window.BootstrapDialog.show({
+			type: window.BootstrapDialog.TYPE_DANGER,
+			// size: BootstrapDialog.SIZE_LARGE,
+			title: '',
+			message: '<h3>Existing Data Found!</h3> <p><strong>IMPORTANT:</strong> There is existing data in this session. You <strong>must</strong> reset the session before loading historical data.</p><h4>Reset the session now?</h4>',
+			buttons: [{
+				label: 'Continue',
+				cssClass: 'btn-modal-success',
+				action: function(){
+					window.dataStore.deleteDocument(window.netCanvas.Modules.session.reset);
+				}
+			}, {
+				label: 'Cancel',
+				cssClass: 'btn-modal-danger',
+				action: function(dialogItself){
+					dialogItself.close();
+				}
+			}]
+		});
+
+	} else {
+		$('#fileDialog').click();
+	}
+
+});
+
+var fs = nodeRequire('fs');
+
+$('#fileDialog').on("change", function(evt) {
+	var reader = new FileReader();
+	fs.readFile(this.value, function read(err, data) {
+		if (err) {
+			$('.general-error, .load-success, .match-error').fadeOut(0);
+			$('.general-error').fadeIn();
+		}
+
+		var jsonData;
+		try{
+			jsonData = JSON.parse(data);
+		}catch(e){
+			$('.general-error, .load-success, .match-error').fadeOut(0);
+			$('.general-error').fadeIn();
+		}
+		window.netCanvas.Modules.session.registerData('previousNetwork');
+		window.netCanvas.Modules.session.addData('previousNetwork', {nodes: jsonData.nodes, edges: jsonData.edges});
+		window.previousNetwork = new window.netCanvas.Modules.Network();
+		window.previousNetwork.loadNetwork(window.netCanvas.Modules.session.sessionData.previousNetwork);
+		var currentEgo = window.network.getEgo();
+		var previousEgo = window.previousNetwork.getEgo();
+
+		if (previousEgo.radar_id !== currentEgo.radar_id) {
+			$('.general-error, .load-success, .match-error').fadeOut(0);
+			$('.match-error').fadeIn();
+			return false;
+		} else {
+			$('.general-error, .load-success, .match-error').fadeOut(0);
+			$('.load-success').fadeIn();
+		}
+
+	});
+
+});
+
+</script>

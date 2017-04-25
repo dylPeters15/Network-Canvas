@@ -1,0 +1,24 @@
+<div class="container full-height">
+
+</div>
+
+<script>
+
+	// Delete all previous relationship data
+	// global.network.removeEdges(global.network.getEdges({type:'Role'}));
+
+	var roleRevisit = require('./js/role-revisit.js');
+	roleRevisit.init({
+		targetEl: $('.container'),
+      	edgeTypes:['Dyad'],
+    	heading: "Please confirm the roles of the following people.",
+    	subheading: "Review each card below and check that these roles still apply. Tap to change or remove a role."
+	});
+	//
+	// add existing nodes
+    $.each(window.network.getEdges({type: 'Dyad', from: window.network.getNodes({type_t0:'Ego'})[0].id}), function(index,value) {
+     	roleRevisit.addToList(value);
+    });
+
+
+</script>

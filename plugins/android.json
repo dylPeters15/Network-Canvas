@@ -7,20 +7,22 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-crosswalk-webview": {
-            "XWALK_VERSION": "23+",
-            "XWALK_LITEVERSION": "xwalk_core_library_canary:17+",
-            "XWALK_COMMANDLINE": "--disable-pull-to-refresh-effect",
-            "XWALK_MODE": "embedded",
-            "XWALK_MULTIPLEAPK": "true",
-            "PACKAGE_NAME": "org.codaco.networkCanvas"
+        "com.telerik.plugins.wkwebview": {
+            "PACKAGE_NAME": "com.jthrilly.networkcanvas"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.jthrilly.networkcanvas"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.jthrilly.networkcanvas"
         },
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "org.codaco.networkCanvas"
-        },
-        "cordova-plugin-wkwebview-engine": {
-            "PACKAGE_NAME": "org.codaco.networkCanvas"
+            "PACKAGE_NAME": "com.jthrilly.networkcanvas"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-webserver": {
+            "PACKAGE_NAME": "com.jthrilly.networkcanvas"
+        }
+    }
 }
