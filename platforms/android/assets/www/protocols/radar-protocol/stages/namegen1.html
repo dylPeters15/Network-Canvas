@@ -1,0 +1,33 @@
+<div class="container full-height">
+
+</div>
+
+<script>
+
+var subheading = 'That is, people you see or talk to regularly and share your personal thoughts and feelings with.';
+var visit_number = window.network.getEgo().visit_number;
+if (typeof window.network !== 'undefined' && visit_number > 1) {
+	subheading = 'That is, people you saw or talked to regularly and shared you personal thoughts and feelings with during the last 6 months.';
+}
+
+
+var namegenerator = new window.netCanvas.Modules.NameGenerator();
+namegenerator.init({
+	targetEl: $('.container'),
+	edgeTypes:['Dyad'],
+	variables: [
+		{label:'type_t0',variable:'type_t0',target:'node', private: true, value:'Alter', type:'text', required:true, edge: '',node:'Alter'},
+		{label:'First Name',variable:'fname_t0',target:'edge', private: false, type:'text', required:true, edge: 'Dyad',node:''},
+		{label:'Last Name',variable:'lname_t0',target:'edge', private: false, type:'text', required:true, edge: 'Dyad',node:''},
+		{label:'Nickname',variable:'nname_t0',target:'edge', private: false, type:'text', required:true, edge: 'Dyad',node:''},
+		{label:'Age',variable:'age_p_t0',target:'edge', private: false, type:'number', required:true, edge: 'Dyad',node:''},
+		{label:'ng_t0',variable:'ng_t0',target:'edge', private: true, value:'closest', type:'text', required:true, edge: 'Dyad',node:''},
+		{label:'k_or_p_t0',variable:'k_or_p_t0',target:'edge', private: true, value:'known', type:'number', required:true, edge: 'Dyad',node:''},
+	],
+	heading: "Who are the people you are closest to?",
+	subheading: subheading,
+	panels: ['previous']
+});
+
+
+</script>

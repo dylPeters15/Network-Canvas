@@ -1,0 +1,19 @@
+<div id="kineticCanvas"></div>
+
+<script>
+var criteria = {
+    type:'Dyad',
+    from:window.network.getNodes({type_t0:'Ego'})[0].id
+};
+
+var sociogram = new window.netCanvas.Modules.Sociogram();
+sociogram.init({
+    network: window.network,
+    mode:'Select', //edge, position, select
+    targetEl: $('.container'),
+    edgeType: "Drugs",
+    criteria: criteria,
+    heading: "Tap on all of the people with whom you used marijuana or other drugs in the past six months.",
+    subheading: ""
+});
+</script>
