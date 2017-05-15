@@ -180,6 +180,22 @@ module.exports = [
         "file": "plugins/cordova-plugin-whitelist/whitelist.js",
         "pluginId": "cordova-plugin-whitelist",
         "runs": true
+    },
+    {
+        "id": "cordova-plugin-file-transfer.FileTransferError",
+        "file": "plugins/cordova-plugin-file-transfer/www/FileTransferError.js",
+        "pluginId": "cordova-plugin-file-transfer",
+        "clobbers": [
+            "window.FileTransferError"
+        ]
+    },
+    {
+        "id": "cordova-plugin-file-transfer.FileTransfer",
+        "file": "plugins/cordova-plugin-file-transfer/www/FileTransfer.js",
+        "pluginId": "cordova-plugin-file-transfer",
+        "clobbers": [
+            "window.FileTransfer"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -189,7 +205,8 @@ module.exports.metadata =
     "cordova-plugin-file": "2.1.0",
     "cordova-plugin-statusbar": "1.0.1",
     "cordova-plugin-webserver": "1.0.3",
-    "cordova-plugin-whitelist": "1.1.0"
+    "cordova-plugin-whitelist": "1.1.0",
+    "cordova-plugin-file-transfer": "1.6.3"
 };
 // BOTTOM OF METADATA
 });
