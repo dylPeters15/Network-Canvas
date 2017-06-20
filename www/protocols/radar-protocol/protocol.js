@@ -4,8 +4,10 @@ var protocol = {
         "name": "RADAR"
     },
     "stages": [
-        {icon:'fa-file-text', label:'Intro', page:'intro.html'},
+        {icon:'fa-file-text', label:'Intro', page:'intro.html'},        
         {icon:'fa-file-text', label:'Load Previous Data', page:'load.html', skip: function() { return window.netCanvas.Modules.session.skipFunctions.revisitSkip(); }},
+        {icon:'fa-file-text', label:'Mobile Status', page:'mobile.html'},
+        {icon:'fa-file-text', label:'Mobile Yes', page:'mobileyes.html', skip: function() { return window.netCanvas.Modules.session.skipFunctions.mobileYesSkip(); }},
         {icon:'fa-user-plus', label:'NG: closest', page:'namegen1.html'},
         {icon:'fa-user-plus', label:'NG: marijuana or other drugs', page:'namegen5.html'},
         {icon:'fa-user-plus', label:'NG: drugs, two or more', page:'namegenmod6.html'},

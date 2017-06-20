@@ -21,6 +21,12 @@
         },
         "cordova-plugin-file-transfer": {
             "PACKAGE_NAME": "com.jthrilly.networkcanvas"
+        },
+        "com.megster.cordova.FileChooser": {
+            "PACKAGE_NAME": "com.jthrilly.networkcanvas"
+        },
+        "cordova-plugin-mfilechooser": {
+            "PACKAGE_NAME": "com.jthrilly.networkcanvas"
         }
     },
     "dependent_plugins": {

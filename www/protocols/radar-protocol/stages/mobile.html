@@ -1,0 +1,54 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row study-welcome">
+				<div class="col-md-12">
+					<h1 class='text-center'>Do you have your own mobile phone ?</h1>
+				</div>
+			</div>
+		  	<form role="form" id="step2">
+				<div class="row">
+					<div class="col-md-12 welcome-row">
+						<label></label>
+						<br>
+		                <div class="btn-group big-check" data-toggle="buttons">
+		                    <label class="btn">
+		                      <input type="radio" name='mobile_status' data-value="mobile" checked><i class="fa fa-circle-o fa-3x"></i><i class="fa fa-check-circle-o fa-3x"></i> <span class="check-number">Yes</span>
+		                    </label>
+		                    <label class="btn">
+		                      <input type="radio" name='mobile_status' data-value="no-mobile"><i class="fa fa-circle-o fa-3x"></i><i class="fa fa-check-circle-o fa-3x"></i> <span class="check-number">No</span>
+		                    </label>
+		                </div>
+					</div>
+				</div>
+				<div class="row welcome-row-submit">
+                                <div class="col-md-12 form-group">
+					  	<button type="submit" class="btn btn-primary submit-1">Continue</button>
+				</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<script>
+	
+	// Populate Seed Status
+        var sessionParameters = window.netCanvas.Modules.session.returnData('sessionParameters');
+	$("input:radio[name=mobile_status][data-value='"+sessionParameters.mobileStatus+"']").prop('checked', true);
+	$("input:radio[name=mobile_status][data-value='"+sessionParameters.mobileStatus+"']").parent().addClass('active');
+
+	$("#step2").submit(function( event ) {
+
+		// Prevent the form actually submitting. We're going to process the data manually.
+		event.preventDefault();
+//console.log($('input[name=mobile_status]:checked').data("value")); return false;
+	  
+		// Store interviewer id
+		sessionParameters.mobileStatus = $('input[name=mobile_status]:checked').data("value");
+
+		// Continue to next stage
+		// TODO: check that everything worked first and fire a validation callback.
+		window.netCanvas.Modules.session.nextStage();
+	});
+
+</script>

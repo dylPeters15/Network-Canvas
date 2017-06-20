@@ -196,6 +196,22 @@ module.exports = [
         "clobbers": [
             "window.FileTransfer"
         ]
+    },
+    {
+        "id": "com.megster.cordova.FileChooser.FileChooser",
+        "file": "plugins/com.megster.cordova.FileChooser/www/fileChooser.js",
+        "pluginId": "com.megster.cordova.FileChooser",
+        "clobbers": [
+            "fileChooser"
+        ]
+    },
+    {
+        "id": "cordova-plugin-mfilechooser.MFileChooser",
+        "file": "plugins/cordova-plugin-mfilechooser/www/mfilechooser.js",
+        "pluginId": "cordova-plugin-mfilechooser",
+        "clobbers": [
+            "MFileChooser"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -206,7 +222,9 @@ module.exports.metadata =
     "cordova-plugin-statusbar": "1.0.1",
     "cordova-plugin-webserver": "1.0.3",
     "cordova-plugin-whitelist": "1.1.0",
-    "cordova-plugin-file-transfer": "1.6.3"
+    "cordova-plugin-file-transfer": "1.6.3",
+    "com.megster.cordova.FileChooser": "0.0.0",
+    "cordova-plugin-mfilechooser": "1.0.0"
 };
 // BOTTOM OF METADATA
 });
