@@ -9,14 +9,14 @@
 		  	<form role="form" id="step1">
 				<div class="row">
 					<div class="col-md-12 welcome-row">
-						<label>Do you have your own mobile phone ?</label>
+						<label>Do you have access to a mobile phone that you can use?</label>
 						<br>
 		                <div class="btn-group big-check" data-toggle="buttons">
 		                    <label class="btn">
-		                      <input type="radio" name='mobile_status' data-value="yes" checked><i class="fa fa-circle-o fa-3x"></i><i class="fa fa-check-circle-o fa-3x"></i> <span class="check-number">Yes</span>
+		                      <input type="radio" name='mobile_access' data-value="yes" checked><i class="fa fa-circle-o fa-3x"></i><i class="fa fa-check-circle-o fa-3x"></i> <span class="check-number">Yes</span>
 		                    </label>
 		                    <label class="btn">
-		                      <input type="radio" name='mobile_status' data-value="no"><i class="fa fa-circle-o fa-3x"></i><i class="fa fa-check-circle-o fa-3x"></i> <span class="check-number">No</span>
+		                      <input type="radio" name='mobile_access' data-value="no"><i class="fa fa-circle-o fa-3x"></i><i class="fa fa-check-circle-o fa-3x"></i> <span class="check-number">No</span>
 		                    </label>
 		                </div>
 					</div>
@@ -34,8 +34,8 @@
 	
 	// Populate Seed Status
         var sessionParameters = window.netCanvas.Modules.session.returnData('sessionParameters');
-	$("input:radio[name=mobile_status][data-value='"+sessionParameters.mobileStatus+"']").prop('checked', true);
-	$("input:radio[name=mobile_status][data-value='"+sessionParameters.mobileStatus+"']").parent().addClass('active');
+	$("input:radio[name=mobile_access][data-value='"+sessionParameters.mobileAccess+"']").prop('checked', true);
+	$("input:radio[name=mobile_access][data-value='"+sessionParameters.mobileAccess+"']").parent().addClass('active');
 
 	$("#step1").submit(function( event ) {
 
@@ -44,7 +44,7 @@
 //console.log($('input[name=mobile_status]:checked').data("value")); return false;
 	  
 		// Store interviewer id
-		sessionParameters.mobileStatus = $('input[name=mobile_status]:checked').data("value");
+		sessionParameters.mobileAccess = $('input[name=mobile_access]:checked').data("value");
 
 		// Continue to next stage
 		// TODO: check that everything worked first and fire a validation callback.

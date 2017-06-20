@@ -7,12 +7,19 @@ var protocol = {
         {icon:'fa-file-text', label:'Intro', page:'intro.html'},        
         {icon:'fa-file-text', label:'Load Previous Data', page:'load.html', skip: function() { return window.netCanvas.Modules.session.skipFunctions.revisitSkip(); }},
         {icon:'fa-file-text', label:'Mobile Status', page:'mobile.html'},
-        {icon:'fa-file-text', label:'Mobile Yes', page:'mobileyes.html', skip: function() { return window.netCanvas.Modules.session.skipFunctions.mobileYesSkip(); }},
+        {icon:'fa-file-text', label:'Yes: Mobile', page:'mobileyes.html', skip: function() { return window.netCanvas.Modules.session.skipFunctions.mobileYesSkip(); }},
+        {icon:'fa-file-text', label:'No: Mobile', page:'mobileno.html', skip: function() { return window.netCanvas.Modules.session.skipFunctions.mobileNoSkip(); }},
+        {icon:'fa-file-text', label:'Yes: Mobile Access', page:'mobileaccessyes.html', skip: function() { return window.netCanvas.Modules.session.skipFunctions.mobileAccessYesSkip(); }},
+        {icon:'fa-file-text', label:'Computer Status', page:'computer.html'},
+        {icon:'fa-file-text', label:'Yes: Computer', page:'computeryes.html', skip: function() { return window.netCanvas.Modules.session.skipFunctions.computerYesSkip(); }},
+        {icon:'fa-file-text', label:'No: Computer', page:'computerno.html', skip: function() { return window.netCanvas.Modules.session.skipFunctions.computerNoSkip(); }},
+        {icon:'fa-file-text', label:'Yes: Computer Access', page:'computeraccessyes.html', skip: function() { return window.netCanvas.Modules.session.skipFunctions.computerAccessYesSkip(); }},
         {icon:'fa-user-plus', label:'NG: closest', page:'namegen1.html'},
-        {icon:'fa-user-plus', label:'NG: marijuana or other drugs', page:'namegen5.html'},
-        {icon:'fa-user-plus', label:'NG: drugs, two or more', page:'namegenmod6.html'},
-        {icon:'fa-user-plus', label:'NG: other people sex', page:'namegen7.html'},
-        {icon:'fa-user-plus', label:'NG: sex, two or more', page:'namegenmod8.html'},
+        {icon:'fa-user-plus', label:'NG: very personal and private', page:'namegen5.html'},
+        {icon:'fa-user-plus', label:'NG: borrow money', page:'namegenmod6.html'},
+        {icon:'fa-user-plus', label:'NG: advice about health', page:'namegen7.html'},
+        {icon:'fa-user-plus', label:'NG: made at your clinic', page:'namegenmod8.html'},
+        {icon:'fa-user-plus', label:'NG: had sex', page:'namegenmod9.html'},
         {icon:'fa-connectdevelop', label:'NET: layout', page:'canvaslayout.html'},
         {icon:'fa-connectdevelop', label:'NET EDGE: social', page:'canvasedge1.html'},
         {icon:'fa-connectdevelop', label:'NET NI: who recruited', page:'canvasselect2.html', skip: function() { return window.netCanvas.Modules.session.skipFunctions.seedSkip(); }},
@@ -66,7 +73,79 @@ var protocol = {
                 }
             } else {
                 return false;
-            }
+            }  
+        },
+        "mobileYesSkip": function() {
+            if (typeof window.network !== 'undefined') {
+               var sessionParameters = window.netCanvas.Modules.session.returnData('sessionParameters');
+                if (sessionParameters.mobileStatus === 'yes') {
+                    return false;
+                } else {
+                    return true;
+                }
+            } else {
+                return false;
+            }  
+        }, 
+        "mobileNoSkip": function() {
+            if (typeof window.network !== 'undefined') {
+               var sessionParameters = window.netCanvas.Modules.session.returnData('sessionParameters');
+                if (sessionParameters.mobileStatus === 'no') {
+                    return false;
+                } else {
+                    return true;
+                }
+            } else {
+                return false;
+            }  
+        },
+        "mobileAccessYesSkip": function() {
+            if (typeof window.network !== 'undefined') {
+               var sessionParameters = window.netCanvas.Modules.session.returnData('sessionParameters');
+                if (sessionParameters.mobileStatus === 'no' && sessionParameters.mobileAccess === 'yes') {
+                    return false;
+                } else {
+                    return true;
+                }
+            } else {
+                return false;
+            }  
+        },
+         "computerYesSkip": function() {
+            if (typeof window.network !== 'undefined') {
+               var sessionParameters = window.netCanvas.Modules.session.returnData('sessionParameters');
+                if (sessionParameters.computerStatus === 'yes') {
+                    return false;
+                } else {
+                    return true;
+                }
+            } else {
+                return false;
+            }  
+        },
+         "computerNoSkip": function() {
+            if (typeof window.network !== 'undefined') {
+               var sessionParameters = window.netCanvas.Modules.session.returnData('sessionParameters');
+                if (sessionParameters.computerStatus === 'no') {
+                    return false;
+                } else {
+                    return true;
+                }
+            } else {
+                return false;
+            }  
+        },
+        "computerAccessYesSkip": function() {
+            if (typeof window.network !== 'undefined') {
+               var sessionParameters = window.netCanvas.Modules.session.returnData('sessionParameters');
+                if (sessionParameters.computerStatus === 'no' && sessionParameters.computerAccess === 'yes') {
+                    return false;
+                } else {
+                    return true;
+                }
+            } else {
+                return false;
+            }  
         },
         "drugSkip": function(drugVar) {
             if (typeof window.network !== 'undefined') {
