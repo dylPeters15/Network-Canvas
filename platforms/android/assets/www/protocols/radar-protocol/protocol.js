@@ -4,23 +4,50 @@ var protocol = {
         "name": "RADAR"
     },
     "stages": [
-        {icon:'fa-file-text', label:'Intro', page:'intro.html'},
+        {icon:'fa-file-text', label:'Intro', page:'intro.html'},        
         {icon:'fa-file-text', label:'Load Previous Data', page:'load.html', skip: function() { return window.netCanvas.Modules.session.skipFunctions.revisitSkip(); }},
+        {icon:'fa-file-text', label:'Mobile Status', page:'mobile.html'},
+        {icon:'fa-file-text', label:'Yes: Mobile', page:'mobileyes.html', skip: function() { return window.netCanvas.Modules.session.skipFunctions.mobileYesSkip(); }},
+        {icon:'fa-file-text', label:'No: Mobile', page:'mobileno.html', skip: function() { return window.netCanvas.Modules.session.skipFunctions.mobileNoSkip(); }},
+        {icon:'fa-file-text', label:'Yes: Mobile Access', page:'mobileaccessyes.html', skip: function() { return window.netCanvas.Modules.session.skipFunctions.mobileAccessYesSkip(); }},
+        {icon:'fa-file-text', label:'Computer Status', page:'computer.html'},
+        {icon:'fa-file-text', label:'Yes: Computer', page:'computeryes.html', skip: function() { return window.netCanvas.Modules.session.skipFunctions.computerYesSkip(); }},
+        {icon:'fa-file-text', label:'No: Computer', page:'computerno.html', skip: function() { return window.netCanvas.Modules.session.skipFunctions.computerNoSkip(); }},
+        {icon:'fa-file-text', label:'Yes: Computer Access', page:'computeraccessyes.html', skip: function() { return window.netCanvas.Modules.session.skipFunctions.computerAccessYesSkip(); }},
         {icon:'fa-user-plus', label:'NG: closest', page:'namegen1.html'},
-        {icon:'fa-user-plus', label:'NG: marijuana or other drugs', page:'namegen5.html'},
-        {icon:'fa-user-plus', label:'NG: drugs, two or more', page:'namegenmod6.html'},
-        {icon:'fa-user-plus', label:'NG: other people sex', page:'namegen7.html'},
-        {icon:'fa-user-plus', label:'NG: sex, two or more', page:'namegenmod8.html'},
-        {icon:'fa-connectdevelop', label:'NET: layout', page:'canvaslayout.html'},
-        {icon:'fa-connectdevelop', label:'NET EDGE: social', page:'canvasedge1.html'},
-        {icon:'fa-connectdevelop', label:'NET NI: who recruited', page:'canvasselect2.html', skip: function() { return window.netCanvas.Modules.session.skipFunctions.seedSkip(); }},
+        {icon:'fa-user-plus', label:'NG: very personal and private', page:'namegen5.html'},
+        {icon:'fa-user-plus', label:'NG: borrow money', page:'namegenmod6.html'},
+        {icon:'fa-user-plus', label:'NG: advice about health', page:'namegen7.html'},
+        {icon:'fa-user-plus', label:'NG: made at your clinic', page:'namegenmod8.html'},
+        {icon:'fa-user-plus', label:'NG: had sex', page:'namegenmod9.html'},
+        {icon:'fa-connectdevelop', label:'EG: layout', page:'canvaslayout.html'},
+        {icon:'fa-connectdevelop', label:'EG: social', page:'canvasedge1.html'},
+       /* {icon:'fa-connectdevelop', label:'NET NI: who recruited', page:'canvasselect2.html', skip: function() { return window.netCanvas.Modules.session.skipFunctions.seedSkip(); }},
         {icon:'fa-connectdevelop', label:'NET NI: who drunk with', page:'canvasselect3.html'},
         {icon:'fa-connectdevelop', label:'NET NI: who drugs with', page:'canvasselect4.html'},
-        {icon:'fa-connectdevelop', label:'NET NI: who sex with', page:'canvasselect5.html'},
-        {icon:'fa-sort', label:'ORD: contact frequency', page:'ordbin1a.html'},
-        {icon:'fa-sort', label:'ORD: relationship strength', page:'ordbin1.html'},
-        {icon:'fa-connectdevelop', label:'NET NI: get advice', page:'canvasselect6.html'},
-        {icon:'fa-connectdevelop', label:'NET NI: Serious relationship?', page:'canvasselect8.html'},
+        {icon:'fa-connectdevelop', label:'NET NI: who sex with', page:'canvasselect5.html'},*/
+        {icon:'fa-sort', label:'NI G: contact frequency', page:'ordbin1a.html'},
+        {icon:'fa-sort', label:'NI G: relationship strength', page:'ordbin1.html'},
+        {icon:'fa-sort', label:'NI G: trust strength', page:'ordbin2.html'},
+        {icon:'fa-connectdevelop', label:'NISS ISS: who given money', page:'canvasselect3.html'},
+        {icon:'fa-connectdevelop', label:'NISS ISS: who given place', page:'canvasselect4.html'},
+        {icon:'fa-connectdevelop', label:'NISS ESS: whom you talked personal', page:'canvasselect5.html'},  
+        {icon:'fa-connectdevelop', label:'NISS MSS: medical services information', page:'canvasselect6.html'},
+        {icon:'fa-connectdevelop', label:'NISS MSS: helped to appointment', page:'canvasselect8.html'},
+        {icon:'fa-connectdevelop', label:'NISS MSS: helped to medication', page:'canvasselect9.html'},
+        {icon:'fa-connectdevelop', label:'NI SN: had sex', page:'canvasselect10.html'},
+        {icon:'fa-connectdevelop', label:'NI HS: disclosed you HIV', page:'canvasselect11.html'},
+        {icon:'fa-connectdevelop', label:'NI HS: your knowledge HIV people', page:'canvasselect12.html'},
+        {icon:'fa-sort', label:'NI CSM: contact frequency using phone', page:'ordbin3.html'},
+        {icon:'fa-sort', label:'NI CSM: contact frequency writing using phone', page:'ordbin4.html'},
+        {icon:'fa-connectdevelop', label:'NI CSM: used your phone medical', page:'canvasselect13.html'},
+        {icon:'fa-connectdevelop', label:'NI CSM: used your phone social', page:'canvasselect14.html'},
+        {icon:'fa-check-square', label:'AS: connection between the people', page:'singlechoice1.html'},
+        {icon:'fa-check-square', label:'AS: answer question', page:'singlechoice2.html'},
+        {icon:'fa-check-square', label:'AS: medicle need', page:'singlechoice3.html'},
+        {icon:'fa-check-square', label:'AS: social/emotional need', page:'singlechoice4.html'},
+        {icon:'fa-check-square', label:'AS: support outside', page:'singlechoice5.html'},
+        /*
         {icon:'fa-transgender-alt', label:'CAT: gender identity', page:'multibin5.html'},
         {icon:'fa-file-text', label:'RACE: Hispanic or Latino', page:'canvasselect14.html'},
         {icon:'fa-file-text', label:'RACE: Racial Identity', page:'multibin2.html'},
@@ -47,9 +74,9 @@ var protocol = {
         {icon:'fa-connectdevelop', label:'NET EDGE: sex', page:'canvasedge3.html'},
         {icon:'fa-check-square', label:'SWITCH: multiple sex partners', page:'multiplepartners.html', skip: function() { return window.netCanvas.Modules.session.skipFunctions.sexPartnerSkip(); }},
         {icon:'fa-connectdevelop', label:'NET NI: who multiple sex partners', page:'canvasselect7.html', skip: function() {return window.netCanvas.Modules.session.skipFunctions.multiSexPartnerSkip(); }},
-        {icon:'fa-smile-o', label:'Thank You', page:'thanks.html'},
-        {icon:'fa-cloud-download', label:'Download Data', page:'download.html'},
-        {icon:'fa-check', label:'Finish', page:'finish.html'}
+        {icon:'fa-smile-o', label:'Thank You', page:'thanks.html'}, */
+        {icon:'fa-cloud-download', label:'Download Data', page:'download.html'}
+       // {icon:'fa-check', label:'Finish', page:'finish.html'}
     ],
     "skipFunctions": {
         "exampleSkip": function() {
@@ -64,7 +91,79 @@ var protocol = {
                 }
             } else {
                 return false;
-            }
+            }  
+        },
+        "mobileYesSkip": function() {
+            if (typeof window.network !== 'undefined') {
+               var sessionParameters = window.netCanvas.Modules.session.returnData('sessionParameters');
+                if (sessionParameters.mobileStatus === 'yes') {
+                    return false;
+                } else {
+                    return true;
+                }
+            } else {
+                return false;
+            }  
+        }, 
+        "mobileNoSkip": function() {
+            if (typeof window.network !== 'undefined') {
+               var sessionParameters = window.netCanvas.Modules.session.returnData('sessionParameters');
+                if (sessionParameters.mobileStatus === 'no') {
+                    return false;
+                } else {
+                    return true;
+                }
+            } else {
+                return false;
+            }  
+        },
+        "mobileAccessYesSkip": function() {
+            if (typeof window.network !== 'undefined') {
+               var sessionParameters = window.netCanvas.Modules.session.returnData('sessionParameters');
+                if (sessionParameters.mobileStatus === 'no' && sessionParameters.mobileAccess === 'yes') {
+                    return false;
+                } else {
+                    return true;
+                }
+            } else {
+                return false;
+            }  
+        },
+         "computerYesSkip": function() {
+            if (typeof window.network !== 'undefined') {
+               var sessionParameters = window.netCanvas.Modules.session.returnData('sessionParameters');
+                if (sessionParameters.computerStatus === 'yes') {
+                    return false;
+                } else {
+                    return true;
+                }
+            } else {
+                return false;
+            }  
+        },
+         "computerNoSkip": function() {
+            if (typeof window.network !== 'undefined') {
+               var sessionParameters = window.netCanvas.Modules.session.returnData('sessionParameters');
+                if (sessionParameters.computerStatus === 'no') {
+                    return false;
+                } else {
+                    return true;
+                }
+            } else {
+                return false;
+            }  
+        },
+        "computerAccessYesSkip": function() {
+            if (typeof window.network !== 'undefined') {
+               var sessionParameters = window.netCanvas.Modules.session.returnData('sessionParameters');
+                if (sessionParameters.computerStatus === 'no' && sessionParameters.computerAccess === 'yes') {
+                    return false;
+                } else {
+                    return true;
+                }
+            } else {
+                return false;
+            }  
         },
         "drugSkip": function(drugVar) {
             if (typeof window.network !== 'undefined') {
