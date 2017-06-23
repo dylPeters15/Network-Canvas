@@ -1373,12 +1373,12 @@ pre code {
 }
 @media (min-width: 768px) {
     .container {
-        width: 730px
+       /* width: 730px */
     }
 }
 @media (min-width: 1024px) {
     .container {
-        width: 950px
+        /*width: 950px */
     }
 }
 @media (min-width: 1400px) {
@@ -11548,7 +11548,7 @@ div[data-toggle=buttons] label:active {
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
-    overflow: hidden;
+    overflow: scroll;
     opacity: 1;
     -webkit-transition: .2s all ease-in-out;
     transition: .2s all ease-in-out
@@ -12855,12 +12855,37 @@ label {
     opacity: .3;
     cursor: default
 }
+
+@media (max-width: 1200px) {
+    h1{
+            width: 77%;
+    margin: 1px auto;
+    font-size: 25px;
+    }
+    .sociogram-title {
+    background: transparent;
+    padding: 0;
+    width: 241px;
+    height: 30vmin;
+    overflow: hidden;
+    position: absolute;
+    bottom: 85px;
+    left: 50px;
+}
+.sociogram-title h4{
+    font-size: 18px;
+}
+.node-question-container{
+    height:auto;
+}
+    
+}
 @media (max-width: 1024px) {
     .paginate {
         -webkit-transform: scale(0.5);
         transform: scale(0.5)
     }
-    #content{padding-left:14%;overflow-y:scroll !important;display:block;}
+    #content{padding-left:10%;overflow-y:scroll !important;display:block;}
     .menu-container{display:block;}
 }
 @media (max-width: 480px) {
