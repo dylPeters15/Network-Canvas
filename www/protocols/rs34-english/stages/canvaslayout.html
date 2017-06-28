@@ -1,0 +1,20 @@
+<div id="kineticCanvas"></div>
+<script>
+var criteria = {
+    type:'Dyad',
+    from:window.network.getNodes({type_t0:'Ego'})[0].id
+};
+
+var sociogram = new window.netCanvas.Modules.Sociogram();
+sociogram.init({
+    network: window.network,
+    mode:'Position', //edge, position, select
+    targetEl: $('.container'),
+    variables: ['coords_t0'],
+    criteria: criteria,
+    heading: "Position the people you have named amongst the concentric circles.",
+    subheading:'<ul><li>Keep in mind the people in the center of the circle should be people you are closest to.</li><li>Drag each alter to network.</li></ul>'
+    
+
+});
+</script>

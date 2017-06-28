@@ -1,0 +1,19 @@
+<div id="kineticCanvas"></div>
+
+<script>
+var criteria = {
+    type:'Dyad',
+    from:window.network.getNodes({type_t0:'Ego'})[0].id
+};
+
+var sociogram = new window.netCanvas.Modules.Sociogram();
+sociogram.init({
+    heading: "Cinezela kubo bonke abantu oye wasebenzisa ikhomphyutha yakho unxibelelana nabo nge ngezidingo zentlalo ngokomphefumlo kunye neengxaki zakho zentlalo ngokomphefumlo.",
+    subheading: "",
+    mode:'Select', //edge, position, select
+    targetEl: $('.container'),
+    edgeType: "UsedComputerSocial",
+    criteria: criteria
+});
+
+</script>

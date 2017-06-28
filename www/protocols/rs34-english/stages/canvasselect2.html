@@ -1,0 +1,19 @@
+<div id="kineticCanvas"></div>
+
+<script>
+var criteria = {
+    type:'Dyad',
+    from:window.network.getNodes({type_t0:'Ego'})[0].id
+};
+
+var sociogram = new window.netCanvas.Modules.Sociogram();
+sociogram.init({
+    network: window.network,
+    mode:'Select', //edge, position, select
+    targetEl: $('.container'),
+    edgeType: "RecruitedBy",
+    criteria: criteria,
+    heading: "If they are present, tap on the person who recruited you into this study. <br><small>If they are not in your network, click the button below.</small>",
+    subheading: "<button type='button' class='btn btn-primary not-listed' onClick='javascript:window.session.nextStage();'>Not Listed</button>"
+});
+</script>

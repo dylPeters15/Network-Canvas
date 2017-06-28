@@ -1,0 +1,28 @@
+<div class="container full-height text-center">
+
+</div>
+
+<script>
+
+var ordbin = new window.netCanvas.Modules.OrdBin();
+ordbin.init({
+	targetEl: $('.container'),
+	edgeType: 'Dyad',
+	criteria: {
+		type:'Dyad',
+		from: window.network.getNodes({type_t0:'Ego'})[0].id
+	},
+	variable: {
+		label:'confreqpho_t0',
+		values: [
+			{label:'Imihla ngemihla', value: 3},
+			{label:'Veki neveki', value: 2},
+			{label:'Kunqabile', value: 1},
+                        {label:'Zange', value: 0}
+		]
+	},
+	heading: "Kulenyanga inye idlulileyo, ngokomlinganiselo, uncokole kangaphi [nelungu ngalinye onxibelelana nalo], usebenzisa ifowuni?  Oko kuquka ukuthetha emnxebeni rhoqo kwanokuthetha ngevidiyo kwakunye nokuthetha usebenzisa ii-aplikheyshini efowunini yakho (njengokushiya umyalezo welizwi kuWhatsApp).",
+	subheading: ""
+});
+
+</script>

@@ -12758,6 +12758,15 @@ input[type=radio]:checked+label>img {
     -webkit-transition: opacity 2s cubic-bezier(0.7, 0, 0.3, 1);
     transition: opacity 2s cubic-bezier(0.7, 0, 0.3, 1)
 }
+.heading-visible{
+    visibility: hidden;
+}
+.negative-space{
+    margin-top: -160px;
+}
+.top-heading{
+    position:absolute;top:0px;
+}
 label {
     font-weight: 300!important
 }
@@ -12858,9 +12867,12 @@ label {
 
 @media (max-width: 1200px) {
     h1{
-            width: 77%;
+    width: 77%;
     margin: 1px auto;
     font-size: 25px;
+    }
+    .top-heading h1{
+       width: 100% !important; 
     }
     .sociogram-title {
     background: transparent;
@@ -12885,7 +12897,7 @@ label {
         -webkit-transform: scale(0.5);
         transform: scale(0.5)
     }
-    #content{padding-left:10%;overflow-y:scroll !important;display:block;}
+    #content{padding-left:10%;overflow-y:scroll !important;display:inline-flex;}
     .menu-container{display:block;}
 }
 @media (max-width: 480px) {

@@ -1,0 +1,72 @@
+<div class="container top-heading">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class='text-center'>Introduction and Background Information.</h1>
+        </div>
+    </div>
+ </div>
+<div class="container negative-space">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row study-welcome">
+				<div class="col-md-12">
+					<h1 class='text-center heading-visible'>Introduction and Background Information.</h1>
+				</div>
+			</div>
+		  	<form role="form" id="step1">
+				<div class="row">
+					<div class="col-md-12 welcome-row">
+						<label>Is the phone a smart phone? Meaning, can you connect to internet and view websites on your phone?</label>
+						<br>
+		                <div class="btn-group big-check" data-toggle="buttons">
+		                    <label class="btn">
+		                      <input type="radio" name='smartphone_status' data-value="yes" checked><i class="fa fa-circle-o fa-3x"></i><i class="fa fa-check-circle-o fa-3x"></i> <span class="check-number">Yes</span>
+		                    </label>
+		                    <label class="btn">
+		                      <input type="radio" name='smartphone_status' data-value="no"><i class="fa fa-circle-o fa-3x"></i><i class="fa fa-check-circle-o fa-3x"></i> <span class="check-number">No</span>
+		                    </label>
+		                </div>
+					</div>
+				</div>
+                                <div class="row welcome-row">
+			  		<div class="col-md-12 form-group">
+			  			<label for="spendTimeMobile">On a typical day, how much time do you spend using your mobile phone ?</label>
+					  	<input type="number" class="form-control spendTimeMobile" id="spendTimeMobile" required>
+					</div>
+			  		
+				</div>
+				<div class="row welcome-row-submit">
+                                <div class="col-md-12 form-group">
+					  	<button type="submit" class="btn btn-primary submit-1">Continue</button>
+				</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<script>
+	
+	// Populate smart phone status
+        var sessionParameters = window.netCanvas.Modules.session.returnData('sessionParameters');
+	$("input:radio[name=smartphone_status][data-value='"+sessionParameters.smartphoneStatus+"']").prop('checked', true);
+	$("input:radio[name=smartphone_status][data-value='"+sessionParameters.smartphoneStatus+"']").parent().addClass('active');
+       
+    // Populate time spend on mobile or phone
+        $('.spendTimeMobile').val(sessionParameters.spendTimeMobile);
+	
+    $("#step1").submit(function( event ) {
+
+		// Prevent the form actually submitting. We're going to process the data manually.
+		event.preventDefault();
+//console.log($('input[name=mobile_status]:checked').data("value")); return false;
+	  
+		// Store interviewer id
+		sessionParameters.smartphoneStatus = $('input[name=smartphone_status]:checked').data("value");
+                sessionParameters.spendTimeMobile = $('.spendTimeMobile').val();
+
+		// Continue to next stage
+		// TODO: check that everything worked first and fire a validation callback.
+		window.netCanvas.Modules.session.nextStage();
+	});
+
+</script>
