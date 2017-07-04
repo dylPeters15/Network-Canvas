@@ -14,7 +14,7 @@ var visit_number = window.network.getEgo().visit_number;
 var namegenerator = new window.netCanvas.Modules.NameGenerator();
 namegenerator.init({
 	targetEl: $('.container'),
-	edgeTypes:['Dyad'],
+	edgeTypes:['Dyad','Closest'],
 	variables: [
 		{label:'type_t0',variable:'type_t0',target:'node', private: true, value:'Alter', type:'text', required:true, edge: '',node:'Alter'},
 		{label:'First Name',variable:'fname_t0',target:'edge', private: false, type:'text', required:true, edge: 'Dyad',node:''},

@@ -12884,6 +12884,7 @@ label {
     bottom: 85px;
     left: 50px;
 }
+.btn-lg {padding: 14px 25px;}
 .sociogram-title h4{
     font-size: 18px;
 }
