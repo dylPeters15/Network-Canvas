@@ -11574,7 +11574,8 @@ div[data-toggle=buttons] label:active {
     -webkit-box-pack: center;
     -webkit-justify-content: center;
     -ms-flex-pack: center;
-    justify-content: center
+    justify-content: center;
+        width:80%
 }
 @media (min-width: 1400px) {
     .container {
@@ -12247,7 +12248,7 @@ input.faChkSqr:after {
     cursor: hand;
     border-radius: 2pc;
     text-shadow: none;
-    font-size: 1.7vmin
+    font-size: 2.4vmin
 }
 .active-node-list .node-bucket-item {
     -webkit-transition: all .5s ease-in-out;
