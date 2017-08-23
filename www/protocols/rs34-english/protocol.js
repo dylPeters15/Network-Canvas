@@ -1,4 +1,5 @@
 /* global session, module, global, console */
+/* @sopantech: changes in sessionParameter name and add stages */
 var protocol = {
     "sessionParameters": {
         "name": "RS34English"
@@ -96,6 +97,7 @@ var protocol = {
                 return false;
             }  
         },
+        //@sopanteh : mobileYesSkip 
         "mobileYesSkip": function() {
             if (typeof window.network !== 'undefined') {
                var sessionParameters = window.netCanvas.Modules.session.returnData('sessionParameters');
@@ -108,6 +110,7 @@ var protocol = {
                 return false;
             }  
         }, 
+        //@sopanteh : mobileNoSkip 
         "mobileNoSkip": function() {
             if (typeof window.network !== 'undefined') {
                var sessionParameters = window.netCanvas.Modules.session.returnData('sessionParameters');
@@ -120,6 +123,7 @@ var protocol = {
                 return false;
             }  
         },
+        //@sopanteh : mobileAccessYesSkip 
         "mobileAccessYesSkip": function() {
             if (typeof window.network !== 'undefined') {
                var sessionParameters = window.netCanvas.Modules.session.returnData('sessionParameters');
@@ -132,6 +136,7 @@ var protocol = {
                 return false;
             }  
         },
+         //@sopanteh : computerYesSkip 
          "computerYesSkip": function() {
             if (typeof window.network !== 'undefined') {
                var sessionParameters = window.netCanvas.Modules.session.returnData('sessionParameters');
@@ -144,6 +149,7 @@ var protocol = {
                 return false;
             }  
         },
+         //@sopanteh : computerNoSkip
          "computerNoSkip": function() {
             if (typeof window.network !== 'undefined') {
                var sessionParameters = window.netCanvas.Modules.session.returnData('sessionParameters');
@@ -156,6 +162,7 @@ var protocol = {
                 return false;
             }  
         },
+         //@sopanteh : computerAccessYesSkip
         "computerAccessYesSkip": function() {
             if (typeof window.network !== 'undefined') {
                var sessionParameters = window.netCanvas.Modules.session.returnData('sessionParameters');
