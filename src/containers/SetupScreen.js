@@ -29,6 +29,12 @@ const initialValues = {
   * @extends Component
   */
 class Setup extends Component {
+  // TODO: Remove. Local Dev.
+  componentDidMount = () => {
+    this.props.loadDemoProtocol();
+  }
+
+
   onClickLoadProtocol = (fields) => {
     if (fields) {
       this.props.loadProtocol(fields.protocol_url);

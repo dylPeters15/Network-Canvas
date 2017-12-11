@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   NameGeneratorInterface,
+  NameGeneratorAutoCompleteInterface,
   QuizInterface,
   SociogramInterface,
 } from '../containers/Interfaces';
@@ -8,6 +9,8 @@ import {
 export default function loadInterface(options) {
   if (Object.hasOwnProperty.call(options, 'custom')) { return options.custom; }
   switch (options) {
+    case 'NameGeneratorAutoComplete':
+      return NameGeneratorAutoCompleteInterface;
     case 'NameGenerator':
       return NameGeneratorInterface;
     case 'Sociogram':
