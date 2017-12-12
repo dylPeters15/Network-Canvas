@@ -10,6 +10,7 @@ import draggable from './draggable';
 import droppable from './droppable';
 import modals from './modals';
 import menu from './menu';
+import search from './search';
 
 const appReducer = combineReducers({
   form: formReducer,
@@ -22,6 +23,7 @@ const appReducer = combineReducers({
   droppable,
   modals,
   menu,
+  search,
 });
 
 const rootReducer = (state, action) => {
