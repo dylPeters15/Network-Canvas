@@ -50,7 +50,6 @@ function getNodesWithAdd(nodes, node) {
   return [...nodes, nodeWithId];
 }
 
-// TODO: ensure no dupes?
 function getNodesWithBatchAdd(nodes, newNodes, additionalAttributes) {
   newNodes = newNodes.map(newNode => {
     const id = nextId(nodes);
