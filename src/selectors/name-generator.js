@@ -13,6 +13,11 @@ These selectors assume the following props:
 
 // MemoedSelectors
 
+export const makeGetNodeType = () => (createSelector(
+  makeGetSubject(),
+  subject => subject && subject.type,
+));
+
 export const makeGetPromptNodeAttributes = () => {
   const getSubject = makeGetSubject();
   const getIds = makeGetIds();
