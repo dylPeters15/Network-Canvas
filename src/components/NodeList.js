@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { find, get } from 'lodash';
 import cx from 'classnames';
 import { Node, animation } from 'network-canvas-ui';
+import { Transition, TransitionGroup } from 'react-transition-group';
+import anime from 'animejs';
 import { scrollable, selectable } from '../behaviours';
 import {
   DragSource,
@@ -13,6 +15,55 @@ import {
 } from '../behaviours/DragAndDrop';
 
 const EnhancedNode = DragSource(selectable(Node));
+
+const appear = {
+  opacity: [0, 1],
+  translateY: ['100%', 0],
+  duration: animation.duration.standard,
+};
+
+const disappear = {
+  opacity: [1, 1],
+  scale: [3, 0],
+  duration: animation.duration.standard,
+};
+
+const AppearTransition = ({ children, ...props }) => (
+  <Transition
+    timeout={animation.duration.standard}
+    onEnter={
+      (el) => {
+        anime({
+          targets: el,
+          elasticity: 0,
+          easing: 'easeOutElastic',
+          ...appear,
+        });
+      }
+    }
+    onExit={
+      (el) => {
+        anime({
+          targets: el,
+          elasticity: 0,
+          easing: 'easeOutElastic',
+          ...disappear,
+        });
+      }
+    }
+    {...props}
+  >
+    { children }
+  </Transition>
+);
+
+AppearTransition.propTypes = {
+  children: PropTypes.any.isRequired,
+};
+
+AppearTransition.defaultProps = {
+  children: null,
+};
 
 /**
   * Renders a list of Node.
@@ -37,7 +88,7 @@ const NodeList = ({
   );
 
   return (
-    <div
+    <TransitionGroup
       className={classNames}
     >
       { isOver && willAccept &&
@@ -45,7 +96,7 @@ const NodeList = ({
       }
       {
         nodes.map(node => (
-          <span key={node.uid}>
+          <AppearTransition key={node.uid}>
             <EnhancedNode
               color={nodeColor}
               label={label(node)}
@@ -54,10 +105,10 @@ const NodeList = ({
               meta={() => ({ ...node, itemType })}
               {...node}
             />
-          </span>
+          </AppearTransition>
         ))
       }
-    </div>
+    </TransitionGroup>
   );
 };
 
