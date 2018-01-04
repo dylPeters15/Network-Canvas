@@ -5,7 +5,7 @@ import { find, get } from 'lodash';
 import cx from 'classnames';
 import { Node, animation } from 'network-canvas-ui';
 import { TransitionGroup } from 'react-transition-group';
-import { NodeTransition } from './Transition';
+import { NodeTransition, FadeTransition } from './Transition';
 import { scrollable, selectable } from '../behaviours';
 import {
   DragSource,
@@ -25,6 +25,7 @@ class NodeList extends Component {
 
     this.state = {
       nodes: props.nodes,
+      stagger: true,
     };
 
     this.refreshTimer = null;
@@ -32,7 +33,7 @@ class NodeList extends Component {
 
   componentWillReceiveProps(newProps) {
     if (newProps.id === this.props.id) {
-      this.setState({ nodes: newProps.nodes });
+      this.setState({ nodes: newProps.nodes, stagger: false });
       return;
     }
 
@@ -40,9 +41,16 @@ class NodeList extends Component {
       { nodes: [] },
       () => {
         if (this.refreshTimer) { clearTimeout(this.refreshTimer); }
-        this.refreshTimer = setTimeout(() => this.setState({ nodes: newProps.nodes }), animation.duration.slow);
+        this.refreshTimer = setTimeout(
+          () => this.setState({
+            nodes: newProps.nodes,
+            stagger: true,
+          }),
+          animation.duration.slow,
+        );
       },
     );
+
   }
 
   render() {
@@ -55,9 +63,13 @@ class NodeList extends Component {
       isOver,
       willAccept,
       meta,
+      id,
     } = this.props;
 
-    const nodes = this.state.nodes;
+    const {
+      stagger,
+      nodes,
+    } = this.state;
 
     const isSource = !!find(nodes, ['uid', get(meta, 'uid', null)]);
 
@@ -72,8 +84,12 @@ class NodeList extends Component {
         className={classNames}
       >
         {
-          nodes.map(node => (
-            <NodeTransition key={node.uid}>
+          nodes.map((node, index) => (
+            <NodeTransition
+              key={`${id}_ ${node.uid}`}
+              index={index}
+              stagger={stagger}
+            >
               <EnhancedNode
                 color={nodeColor}
                 label={label(node)}
@@ -86,7 +102,11 @@ class NodeList extends Component {
           ))
         }
         { isOver && willAccept &&
-          <Node key="placeholder" placeholder />
+          <FadeTransition
+            key={`${id}_placeholder`}
+          >
+            <Node key="placeholder" placeholder />
+          </FadeTransition>
         }
       </TransitionGroup>
     );
