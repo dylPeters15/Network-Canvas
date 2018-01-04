@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { animation } from 'network-canvas-ui';
 import loadInterface from '../utils/loadInterface';
 import { actionCreators as stageActions } from '../ducks/modules/stage';
 import { stage } from '../selectors/session';
@@ -27,29 +26,27 @@ class Stage extends Component {
     const CurrentInterface = loadInterface(activeStageConfig.type);
 
     return (
-      <div>
-        <div className="stage" key={activeStageConfig.id}>
-          <div className="stage__control">
-            <button
-              className="stage__control-button stage__control-button--back"
-              onClick={this.onClickBack}
-            >
-              Back
-            </button>
-          </div>
-          <div className="stage__interface">
-            { CurrentInterface &&
-              <CurrentInterface stage={activeStageConfig} />
-            }
-          </div>
-          <div className="stage__control">
-            <button
-              className="stage__control-button stage__control-button--next"
-              onClick={this.onClickNext}
-            >
-              Next
-            </button>
-          </div>
+      <div className="stage" style={{ opacity: 0 }}>
+        <div className="stage__control">
+          <button
+            className="stage__control-button stage__control-button--back"
+            onClick={this.onClickBack}
+          >
+            Back
+          </button>
+        </div>
+        <div className="stage__interface">
+          { CurrentInterface &&
+            <CurrentInterface stage={activeStageConfig} />
+          }
+        </div>
+        <div className="stage__control">
+          <button
+            className="stage__control-button stage__control-button--next"
+            onClick={this.onClickNext}
+          >
+            Next
+          </button>
         </div>
       </div>
     );
