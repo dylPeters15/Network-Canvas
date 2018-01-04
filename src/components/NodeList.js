@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { compose } from 'redux';
 import PropTypes from 'prop-types';
 import { find, get } from 'lodash';
 import cx from 'classnames';
 import { Node, animation } from 'network-canvas-ui';
-import { Transition, TransitionGroup } from 'react-transition-group';
-import anime from 'animejs';
+import { TransitionGroup } from 'react-transition-group';
+import { NodeTransition } from './Transition';
 import { scrollable, selectable } from '../behaviours';
 import {
   DragSource,
@@ -16,100 +16,81 @@ import {
 
 const EnhancedNode = DragSource(selectable(Node));
 
-const appear = {
-  opacity: [0, 1],
-  translateY: ['100%', 0],
-  duration: animation.duration.standard,
-};
-
-const disappear = {
-  opacity: [1, 1],
-  scale: [3, 0],
-  duration: animation.duration.standard,
-};
-
-const AppearTransition = ({ children, ...props }) => (
-  <Transition
-    timeout={animation.duration.standard}
-    onEnter={
-      (el) => {
-        anime({
-          targets: el,
-          elasticity: 0,
-          easing: 'easeOutElastic',
-          ...appear,
-        });
-      }
-    }
-    onExit={
-      (el) => {
-        anime({
-          targets: el,
-          elasticity: 0,
-          easing: 'easeOutElastic',
-          ...disappear,
-        });
-      }
-    }
-    {...props}
-  >
-    { children }
-  </Transition>
-);
-
-AppearTransition.propTypes = {
-  children: PropTypes.any.isRequired,
-};
-
-AppearTransition.defaultProps = {
-  children: null,
-};
-
 /**
   * Renders a list of Node.
   */
-const NodeList = ({
-  nodes,
-  nodeColor,
-  label,
-  selected,
-  onSelect,
-  itemType,
-  isOver,
-  willAccept,
-  meta,
-}) => {
-  const isSource = !!find(nodes, ['uid', get(meta, 'uid', null)]);
+class NodeList extends Component {
+  constructor(props) {
+    super(props);
 
-  const classNames = cx(
-    'node-list',
-    { 'node-list--hover': !isSource && willAccept && isOver },
-    { 'node-list--drag': !isSource && willAccept }, // TODO: rename class
-  );
+    this.state = {
+      nodes: props.nodes,
+    };
 
-  return (
-    <TransitionGroup
-      className={classNames}
-    >
-      { isOver && willAccept &&
-        <Node key="placeholder" placeholder />
-      }
-      {
-        nodes.map(node => (
-          <AppearTransition key={node.uid}>
-            <EnhancedNode
-              color={nodeColor}
-              label={label(node)}
-              selected={selected(node)}
-              onSelected={() => onSelect(node)}
-              meta={() => ({ ...node, itemType })}
-              {...node}
-            />
-          </AppearTransition>
-        ))
-      }
-    </TransitionGroup>
-  );
+    this.refreshTimer = null;
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (newProps.id === this.props.id) {
+      this.setState({ nodes: newProps.nodes });
+      return;
+    }
+
+    this.setState(
+      { nodes: [] },
+      () => {
+        if (this.refreshTimer) { clearTimeout(this.refreshTimer); }
+        this.refreshTimer = setTimeout(() => this.setState({ nodes: newProps.nodes }), animation.duration.slow);
+      },
+    );
+  }
+
+  render() {
+    const {
+      nodeColor,
+      label,
+      selected,
+      onSelect,
+      itemType,
+      isOver,
+      willAccept,
+      meta,
+    } = this.props;
+
+    const nodes = this.state.nodes;
+
+    const isSource = !!find(nodes, ['uid', get(meta, 'uid', null)]);
+
+    const classNames = cx(
+      'node-list',
+      { 'node-list--hover': !isSource && willAccept && isOver },
+      { 'node-list--drag': !isSource && willAccept }, // TODO: rename class
+    );
+
+    return (
+      <TransitionGroup
+        className={classNames}
+      >
+        {
+          nodes.map(node => (
+            <NodeTransition key={node.uid}>
+              <EnhancedNode
+                color={nodeColor}
+                label={label(node)}
+                selected={selected(node)}
+                onSelected={() => onSelect(node)}
+                meta={() => ({ ...node, itemType })}
+                {...node}
+              />
+            </NodeTransition>
+          ))
+        }
+        { isOver && willAccept &&
+          <Node key="placeholder" placeholder />
+        }
+      </TransitionGroup>
+    );
+  }
 };
 
 NodeList.propTypes = {
