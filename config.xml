@@ -29,7 +29,6 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
-    <engine name="android" spec="~6.1.2" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <plugin name="cordova-plugin-statusbar" spec="~1.0.1" />
     <plugin name="cordova-plugin-file" spec="~2.1.0" />
@@ -37,4 +36,5 @@
     <plugin name="cordova-plugin-file-transfer" spec="~1.6.3" />
     <plugin name="com.megster.cordova.FileChooser" spec="http://github.com/don/cordova-filechooser.git" />
     <plugin name="cordova-plugin-mfilechooser" />
+    <engine name="android" spec="~6.1.2" />
 </widget>
