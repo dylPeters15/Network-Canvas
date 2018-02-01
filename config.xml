@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.jthrilly.networkcanvas" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>R34 Tool</name>
+    <name>Duke Network Canvas</name>
     <description>
         A HTML5 and JavaScript based personal network capture tool.
     </description>
-    <author email="joshmelville@gmail.com" href="http://github.com/jthrilly">
-        Joshua Melville
+    <author email="marta.mulawa@duke.edu">
+        Marta Mulawa
     </author>
     <content src="index.html" />
     <icon src="resources/icons/netCanvas-icon.png" />
