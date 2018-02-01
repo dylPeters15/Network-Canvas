@@ -6,4 +6,4 @@ all:
 	cordova emulate
 
 clean:
-	rm -r bower_components node_modules platforms plugins
+	rm -rf bower_components node_modules platforms plugins
