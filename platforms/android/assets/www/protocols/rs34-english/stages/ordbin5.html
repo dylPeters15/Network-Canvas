@@ -1,0 +1,28 @@
+<div class="container full-height text-center">
+
+</div>
+
+<script>
+
+var ordbin = new window.netCanvas.Modules.OrdBin();
+ordbin.init({
+	targetEl: $('.container'),
+	edgeType: 'Dyad',
+	criteria: {
+		type:'Dyad',
+		from: window.network.getNodes({type_t0:'Ego'})[0].id
+	},
+	variable: {
+		label:'confreqwrtcomp_t0',
+		values: [
+			{label:'Daily', value: 3},
+			{label:'Weekly', value: 2},
+			{label:'Rarely', value: 1},
+                        {label:'Never', value: 0}
+		]
+	},
+	heading: "In the last 1 months, on average, how frequently have you talked or communicated with ... <b><u>over the computer</u></b>? This includes audio/video call using a computer as well as writing on the computer using programs like Facebook, Twitter, and email. ",
+	subheading: ""
+});
+
+</script>

@@ -1,0 +1,19 @@
+<div id="kineticCanvas"></div>
+
+<script>
+var criteria = {
+    type:'Dyad',
+    from:window.network.getNodes({type_t0:'Ego'})[0].id
+};
+
+var sociogram = new window.netCanvas.Modules.Sociogram();
+sociogram.init({
+    heading: "Cinezela kubo bonke abantu abaye bakunceda wasela amayeza akho.",
+    subheading: "",
+    mode:'Select', //edge, position, select
+    targetEl: $('.container'),
+    edgeType: "HelpedMedication",
+    criteria: criteria
+});
+
+</script>

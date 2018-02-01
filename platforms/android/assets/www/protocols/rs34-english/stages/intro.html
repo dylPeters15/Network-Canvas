@@ -1,0 +1,90 @@
+<div class="container top-heading">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class='text-center'>Welcome to R34 Social Assessment - English.</h1>
+        </div>
+    </div>
+ </div>
+
+    <div class="container negative-space">
+    
+    
+	<div class="row">
+                       <h1 class='text-center heading-visible'>Welcome to R34 Social Network Assessment.</h1>
+
+		<div class="col-md-12">
+			<div class="row study-welcome">
+				
+			</div>
+		  	<form role="form" id="step1">
+				<div class="row welcome-row">
+			  		<div class="col-md-6 form-group">
+			  			<label for="radarID">Participant Enrollment Number:</label>
+					  	<input type="number" class="form-control radarID" id="radarID" required>
+					</div>
+			  		<div class="col-md-6 form-group">
+			  			<label for="interviewerID">Interviewer Initials:</label>
+					  	<input type="text" class="form-control interviewerID" id="interviewerID" required>
+					</div>
+				</div>
+				<div class="row welcome-row-submit">
+	                <div class="col-md-12 form-group">
+					  	<button type="submit" class="btn btn-primary submit-1">Continue</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<script>
+	// Make right arrow submit form instead of advancing stage.
+	// This caused the most hideous bug imaginable. For some reason hiding the arrow causes the menu not to scroll.
+
+	// $('.arrow-next').fadeOut();
+
+	// Focus on the first field.
+	$('.radarID').focus();
+
+	// Populate existing data if it exists
+	var readable = new Date(window.netCanvas.Modules.session.returnData('session').int_stime);	
+	$('.radarID').val(window.network.getNode(0).radar_id);
+
+	
+	// Populate interviewer ID
+	var sessionParameters = window.netCanvas.Modules.session.returnData('sessionParameters');
+	$('.interviewerID').val(sessionParameters.interviewerID);
+
+
+	$("#step1").submit(function( event ) {
+
+		// Prevent the form actually submitting. We're going to process the data manually.
+		event.preventDefault();
+
+	  // check if ego node already exists
+	  if (window.network.getEgo() === false) {
+		// if not, create a new root node
+		  window.network.createEgo({
+		  	label:'Root',
+			radar_id: $('.radarID').val()			
+		  });
+
+	  } else {
+
+		// update an existing node
+		var ego = window.network.getEgo();
+		window.network.updateNode(ego.id,{
+			label:'Root',
+			radar_id: $('.radarID').val()
+		});
+
+
+	  }
+		// Store interviewer id
+		sessionParameters.interviewerID = $('.interviewerID').val();
+
+		// Continue to next stage
+		// TODO: check that everything worked first and fire a validation callback.
+		window.netCanvas.Modules.session.nextStage();
+	});
+
+</script>

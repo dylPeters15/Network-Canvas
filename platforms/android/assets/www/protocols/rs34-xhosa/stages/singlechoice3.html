@@ -1,0 +1,73 @@
+<div class="container">
+
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<h1 class="text-center">Ndinganomdla wokuthetha nabantu abasebomini bam malunga nezidingo kunye neengxaki zam zempilo ndisebenzisa ifowuni yam okanye ikhompyutha.</h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<br />
+		<div class="col-md-12">
+			<div class="form-group">
+				<button class="btn btn-lg btn-danger btn-block choice3-sd">Andivumi kakhulu</button>
+			</div>
+			<div class="form-group">
+				<button class="btn btn-lg btn-info btn-block choice3-d">Andivumi</button>
+			</div>
+			<div class="form-group">
+				<button class="btn btn-lg btn-warning btn-block choice3-a">Ndiyavuma</button>
+			</div>
+                        <div class="form-group">
+				<button class="btn btn-lg btn-success  btn-block choice3-sa">Ndivuma kakhulu</button>
+			</div>
+		</div>
+	</div>
+
+
+</div>
+
+<script>
+(function(){
+
+	var properties;
+	$('.choice3-sd').on('click', function() {
+
+		properties = {
+			choice3_sd_t0: 'Andivumi kakhulu'
+		}
+		window.network.updateNode(window.network.getNodes({type_t0:'Ego'})[0].id, properties);
+		window.netCanvas.Modules.session.nextStage();
+
+
+	});
+
+	$('.choice3-d').on('click', function() {
+		properties = {
+			choice3_d_t0: 'Andivumi'
+		}
+		window.network.updateNode(window.network.getNodes({type_t0:'Ego'})[0].id, properties);
+		window.netCanvas.Modules.session.nextStage();
+	});
+
+	$('.choice3-a').on('click', function() {
+		properties = {
+			choice3_a_t0: 'Ndiyavuma'
+		}
+		window.network.updateNode(window.network.getNodes({type_t0:'Ego'})[0].id, properties);
+		window.netCanvas.Modules.session.nextStage();
+	});
+        $('.choice3-sa').on('click', function() {
+		properties = {
+			choice3_sa_t0: 'Ndivuma kakhulu'
+		}
+		window.network.updateNode(window.network.getNodes({type_t0:'Ego'})[0].id, properties);
+		window.netCanvas.Modules.session.nextStage();
+	});
+
+
+
+})();
+
+
+</script>

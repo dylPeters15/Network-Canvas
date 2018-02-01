@@ -1,0 +1,19 @@
+<div id="kineticCanvas"></div>
+
+<script>
+var criteria = {
+    type:'Dyad',
+    from:window.network.getNodes({type_t0:'Ego'})[0].id
+};
+
+var sociogram = new window.netCanvas.Modules.Sociogram();
+sociogram.init({
+    heading: "Tap on all the people with whom you have used your computer to communicate about medical needs and problems.",
+    subheading: "",
+    mode:'Select', //edge, position, select
+    targetEl: $('.container'),
+    edgeType: "UsedComputerMedcal",
+    criteria: criteria
+});
+
+</script>

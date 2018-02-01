@@ -1,0 +1,28 @@
+<div class="container full-height text-center">
+
+</div>
+
+<script>
+
+var ordbin = new window.netCanvas.Modules.OrdBin();
+ordbin.init({
+	targetEl: $('.container'),
+	edgeType: 'Dyad',
+	criteria: {
+		type:'Dyad',
+		from: window.network.getNodes({type_t0:'Ego'})[0].id
+	},
+	variable: {
+		label:'confreqwrtpho_t0',
+		values: [
+			{label:'Daily', value: 3},
+			{label:'Weekly', value: 2},
+			{label:'Rarely', value: 1},
+                        {label:'Never', value: 0}
+		]
+	},
+	heading: "In the last 1 months, on average, how frequently have you communicated with ... via <b><u>writing using your phone</u></b>? This includes text, Instagram, Snapchat, Facebook, Twitter, WhatsApp, Mxit, dating sites, e-mail, text. ",
+	subheading: ""
+});
+
+</script>

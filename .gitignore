@@ -1,0 +1,7 @@
+##Common file types to ignore:
+#Automatic backup files created by many editors:
+*~*
+#Custom folder icon files in Mac OS X
+*.Icon?
+#Folder arrangement files created in Mac OS X
+*.DS_Store
