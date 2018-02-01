@@ -5,3 +5,7 @@
 *.Icon?
 #Folder arrangement files created in Mac OS X
 *.DS_Store
+
+node_modules/*
+platforms/*
+plugins/*
