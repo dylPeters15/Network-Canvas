@@ -10,3 +10,9 @@ node_modules/*
 platforms/*
 plugins/*
 bower_components/*
+
+#Visual Studio Code:
+.idea/*
+.vscode/*
+jsconfig.json
+Typings/*
