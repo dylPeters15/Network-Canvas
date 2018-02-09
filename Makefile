@@ -4,7 +4,7 @@ quick_build:
 full_build:
 	npm install
 	bower update
-	cordova prepare
+	cordova prepare || cordova prepare
 	make quick_build
 
 clean_build:
