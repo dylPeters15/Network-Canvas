@@ -70,9 +70,9 @@
       "android"
     ],
     "plugins": {
-      "cordova-plugin-file": {},
       "cordova-plugin-whitelist": {},
       "cordova-plugin-statusbar": {},
+      "cordova-plugin-file": {},
       "cordova-plugin-file-transfer": {},
       "cordova-plugin-mfilechooser": {}
     }
