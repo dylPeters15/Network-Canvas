@@ -1,6 +1,8 @@
 # Duke Social Network Data Collection Tool
 
 ## Overview
+This project is a fork of netCanvas, copyright Joshua Melville (@jthrilly) <joshmelville@gmail.com>. The original software has continued development, and has now become the open-source project Network Canvas (https://github.com/codaco/Network-Canvas/).
+
 Duke Social Network Data Collection Tool is a project designed to make social network data collection easier and more secure. Researchers can easily create custom surveys and administer them, without needing to know how to code. The data can be uploaded to a secure server without participants or administrators accessing the data.
 
 The program uses [Apache Cordova](https://cordova.apache.org/), to compile [JavaScript](https://www.javascript.com/), [HTML](https://html.com/), and [CSS](https://www.w3schools.com/css/) into a mobile application for Android or iOS. It is currently only tested on Android.
