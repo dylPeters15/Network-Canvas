@@ -4,7 +4,7 @@ Name:,testprotocol,,,,,,,,,,,,,,
 Namegen Data,First Name:,text,first_name,Last Name:,text,last_name,Age:,number,age,,,,,,
 ,,,,,,,,,,,,,,,
 Number,Type,Variable Name (Remember - no spaces!),Label in Menu,Title/prompt,Answer 1,Value for Answer 1,If answer 1 go to question # (leave blank to just go to the next question),Answer 2,Value for Answer 2,If answer 2 go to question # (leave blank to just go to the next question),Answer 3,Value for Answer 3,If answer 3 go to question # (leave blank to just go to the next question),etc…,
-1,MC,positive_experience,First Question,My experience using the tablets to visualize the connections between people in my life was positive.,Agree Strongly,strong_agree,,Agree,agree,,Disagree,disagree,,Disagree Strongly,strong_disagree
+1,MC,positive_experience,First Question,My experience using the tablets to visualize the connections between people in my life was positive.,Agree Strongly,4,,Agree,3,,Disagree,2,,Disagree Strongly,1
 "You can put comments like this see? Simply don't put a valid value in the ""Type"" column.",This is not a valid value,Make sure you don't ever use commas in these cells,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,
 Number,Type,Variable Name (Remember - no spaces!),Label in Menu,Title/prompt,,,,,,,,,,,
