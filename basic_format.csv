@@ -47,7 +47,7 @@ Number,Type,Variable Name (Remember - no spaces!),Label in Menu,Title/prompt,Sub
 4,short answer,participant_initials,Initials,Enter your initials:,We encrypt your data and store it securely.,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,
 Number,Type,Variable Name,Label in Menu,Title/prompt,Subtitle,Answer 1,Value for Answer 1,Answer 2,Value for Answer 2,Answer 3,Value for Answer 3,Answer 4,Value for Answer 4,,,
-5,categorize,contact_frequency,Contact Frequency,Drag each person to the bin that corresponds to the frequency with which you contact them.,This includes contacting them via internet or text message.,,,,,,,,,,,
+5,categorize,contact_frequency,Contact Frequency,Drag each person to the bin that corresponds to the frequency with which you contact them.,This includes contacting them via internet or text message.,Daily,4,Weekly,3,Rarely,2,Never,1,,,
 ,,,,,,,,,,,,,,,,
 Number,Type,Variable Name (Remember - no spaces!),Label in Menu,Title/prompt,Subtitle,,,,,,,,,,,
 6,soc-arrange,coordinates,Arrange,"Arrange people based on how close you feel to them, and how close they are to each other.","Remember, closer to the center means you are closer to that person.",,,,,,,,,,,
