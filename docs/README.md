@@ -83,29 +83,18 @@ Once you have completed the initial setup outlined in "Building" and "Testing an
 |Command|Description|
 |------------------|-----------|
 |`make clean`|Removes all the files generated when the build process occurs. These are all untracked files, so it does not damage the repository. Those files will need to be recompiled to be generated again.|
-|`make quick_build`|Runs the build routine to generate a new APK file. This is basically `cordova build`.|
-|`make full_build`|Runs the full build routine, installing all npm packages, bower packages, and cordova packages, then running `cordova build`.|
-|`make clean_build`|Removes all generated files then runs full build routine. Basically `make clean` followed by `make full_build`.|
-|`make quick_emulate`|Runs the build routine and attempts to run the application on an emulator. This is basically `cordova emulate`.|
-|`make full_emulate`|Runs the full build routine, installing any npm packages, bower packages, and cordova packages, then running `cordova emulate`.|
-|`make clean_emulate`|Removes all generated files then runs full emulate routine. Basically `make clean` followed by `make full_emulate`.|
-|`make quick_run`|Runs the build routine and attempts to run the application on a connected tablet. Will run on an emulator if no physical tablet found. This is basically `cordova run`.|
-|`make full_run`|Runs the full build routine, installing any npm packages, bower packages, and cordova packages, then running `cordova run`.|
-|`make clean_run`|Removes all generated files then runs full run routine. Basically `make clean` followed by `make full_run`.|
+|`make build`|Runs the full build routine, installing all npm packages, bower packages, and cordova packages, then running `cordova build`.|
+|`make clean-build`|Removes all generated files then runs full build routine. Basically `make clean` followed by `make build`.|
+|`make run`|Runs the full build routine, installing any npm packages, bower packages, and cordova packages, then running `cordova run`. If there is no device attached to the USB port, it will attempt to run on an emulator.|
+|`make clean-run`|Removes all generated files then runs full run routine. Basically `make clean` followed by `make run`. If there is no device attached to the USB port, it will attempt to run on an emulator.|
 
 ## Methodologies
-At the beginning of the semester, we will create issues in GitHub for each feature to be added and assign priority and assignee for each issue. Each week we will decide which issues we will strive to complete and close during that week.
+As priorities evolve, we will create issues in GitHub for each feature to be added and assign priority and assignee for each issue. We will decide which issues we will strive to complete and close during that week.
 
 ### Workflow
 1. Choose an issue to work on.
 2. Get current with origin master. `git pull origin master`
 3. Work issue. Commit often.
-4. When issue is solved, rebase on master and squash commits. Include issue number in commit message. e.g.:
-    
-    ```
-    Created new dropdown menu.
-    Issue: 12345
-    ```
-    
+4. When issue is solved, rebase on master and squash commits.
 5. Close issue.
-6. At each weekly meeting we will discuss what issues we closed, how the solutions work, and any new issues to be created.
+6. At each meeting we will discuss what issues we closed, how the solutions work, and any new issues to be created.
