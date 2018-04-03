@@ -1,0 +1,58 @@
+{
+  "_from": "cordova-plugin-mfilechooser@^1.0.2",
+  "_id": "cordova-plugin-mfilechooser@1.0.2",
+  "_inBundle": false,
+  "_integrity": "sha1-I7lCsnafaGjwfQ/SMuNIz0YKCgo=",
+  "_location": "/cordova-plugin-mfilechooser",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "cordova-plugin-mfilechooser@^1.0.2",
+    "name": "cordova-plugin-mfilechooser",
+    "escapedName": "cordova-plugin-mfilechooser",
+    "rawSpec": "^1.0.2",
+    "saveSpec": null,
+    "fetchSpec": "^1.0.2"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-mfilechooser/-/cordova-plugin-mfilechooser-1.0.2.tgz",
+  "_shasum": "23b942b2769f6868f07d0fd232e348cf460a0a0a",
+  "_spec": "cordova-plugin-mfilechooser@^1.0.2",
+  "_where": "/Users/dylanpeters/Sites/bass_network_canvas",
+  "author": {
+    "name": "Fellow-IT"
+  },
+  "bugs": {
+    "url": "https://github.com/Langstra/MFileChooser/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-mfilechooser",
+    "platforms": [
+      "android"
+    ]
+  },
+  "deprecated": false,
+  "description": "File Chooser for Cordova/Phonegap based on Maginsoft FileChooser. One change, it can go landscape and portait mode.",
+  "homepage": "https://github.com/Langstra/MFileChooser#readme",
+  "keywords": [
+    "cordova",
+    "filechooser",
+    "android",
+    "filepicker",
+    "phonegap",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "license": "MIT",
+  "name": "cordova-plugin-mfilechooser",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Langstra/MFileChooser.git"
+  },
+  "version": "1.0.2"
+}

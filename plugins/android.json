@@ -1,0 +1,33 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.duke.networkcanvas"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.duke.networkcanvas"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.duke.networkcanvas"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.duke.networkcanvas"
+    },
+    "cordova-plugin-mfilechooser": {
+      "PACKAGE_NAME": "com.duke.networkcanvas"
+    },
+    "cordova-plugin-filechooser": {
+      "PACKAGE_NAME": "com.duke.networkcanvas"
+    },
+    "cordova-plugin-android-fingerprint-auth": {
+      "PACKAGE_NAME": "com.duke.networkcanvas"
+    }
+  },
+  "dependent_plugins": {}
+}
