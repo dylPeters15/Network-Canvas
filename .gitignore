@@ -6,10 +6,10 @@
 #Folder arrangement files created in Mac OS X
 *.DS_Store
 
-node_modules/*
-platforms/*
-plugins/*
-bower_components/*
+src/node_modules/*
+src/platforms/*
+src/plugins/*
+src/bower_components/*
 
 #Visual Studio Code:
 .idea/*

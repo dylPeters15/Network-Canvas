@@ -11,20 +11,20 @@ The program uses [Apache Cordova](https://cordova.apache.org/), to compile [Java
 This project is a fork from the [Codaco](https://github.com/codaco) [Network Canvas](https://github.com/codaco/Network-Canvas) project. The project was adapted by Basant Singh and his team during summer 2017, and is currently being developed by undergraduates at Duke University, in partnership with Duke Professors [Marta Mulawa](https://globalhealth.duke.edu/people/faculty/mulawa-marta) and [Robert Duvall](https://users.cs.duke.edu/~rcd/).
 
 ## How to put on device
-1. Navigate to "Releases" and download the most recent release labeled "android-debug.apk". ![](readme_resources/releases_location.png) ![](readme_resources/android_apk_download.png) 
+1. Navigate to "Releases" and download the most recent release labeled "android-debug.apk". ![](docs/readme_resources/releases_location.png) ![](docs/readme_resources/android_apk_download.png) 
 2. Install [Android File Transfer](https://www.android.com/filetransfer/) on computer.
-3. Plug in device. You will be prompted on the device about allowing the computer access to device data. Select "Yes" to allow the computer to access device data. ![](readme_resources/device_prompt.png) Android File Transfer should open on the computer. ![](readme_resources/android_file_transfer_before.png)
-4. Copy the android-debug.apk file from the computer to the device. ![](readme_resources/android_file_transfer_after.png)
-5. On the device, open the "My Files" application. ![](readme_resources/my_files.png)
-6. Select "Device Storage" to go to the root directory. ![](readme_resources/device_storage.png)
-7. Scroll to the bottom of the page and select android-debug.apk. ![](readme_resources/device_storage.png)
-8. You may be shown a prompt telling you that you cannot install from unknown sources. Select "Settings". ![](readme_resources/install_blocked.png)
-9. In the settings app, if the the switch labeled "Unknown Sources" is in the off position, flip it on. ![](readme_resources/unknown_sources.png)
-10. You will be prompted with a confirmation prompt. You may choose whether to allow future unknown sources or only allow the current one. If you are unsure, leave the box checked. Tap "OK". ![](readme_resources/allow_installation.png)
-11. The application will install for a few moments. ![](readme_resources/installing.png)
-12. If you already have an installation of this app, you will be prompted whether you want to overwrite the current isntallation. Select "Install" to continue. ![](readme_resources/update.png)
-13. When finished, you will be shown an "App Installed" dialog. Select "OPEN" to open your newly installed app. ![](readme_resources/open.png)
-14. The app should open. (Note: the home page of the app may be different than shown in the image.) ![](readme_resources/app_home.png)
+3. Plug in device. You will be prompted on the device about allowing the computer access to device data. Select "Yes" to allow the computer to access device data. ![](docs/readme_resources/device_prompt.png) Android File Transfer should open on the computer. ![](docs/readme_resources/android_file_transfer_before.png)
+4. Copy the android-debug.apk file from the computer to the device. ![](docs/readme_resources/android_file_transfer_after.png)
+5. On the device, open the "My Files" application. ![](docs/readme_resources/my_files.png)
+6. Select "Device Storage" to go to the root directory. ![](docs/readme_resources/device_storage.png)
+7. Scroll to the bottom of the page and select android-debug.apk. ![](docs/readme_resources/device_storage.png)
+8. You may be shown a prompt telling you that you cannot install from unknown sources. Select "Settings". ![](docs/readme_resources/install_blocked.png)
+9. In the settings app, if the the switch labeled "Unknown Sources" is in the off position, flip it on. ![](docs/readme_resources/unknown_sources.png)
+10. You will be prompted with a confirmation prompt. You may choose whether to allow future unknown sources or only allow the current one. If you are unsure, leave the box checked. Tap "OK". ![](docs/readme_resources/allow_installation.png)
+11. The application will install for a few moments. ![](docs/readme_resources/installing.png)
+12. If you already have an installation of this app, you will be prompted whether you want to overwrite the current isntallation. Select "Install" to continue. ![](docs/readme_resources/update.png)
+13. When finished, you will be shown an "App Installed" dialog. Select "OPEN" to open your newly installed app. ![](docs/readme_resources/open.png)
+14. The app should open. (Note: the home page of the app may be different than shown in the image.) ![](docs/readme_resources/app_home.png)
 
 ## Best Practices
 When using the program to collect sensitive information, we recommend that you take the following security measures:
