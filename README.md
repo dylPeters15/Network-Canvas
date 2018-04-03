@@ -31,7 +31,7 @@ When using the program to collect sensitive information, we recommend that you t
 
 - Encrypt the device's internal storage.
 - Encrypt the device's SD card.
-- Create a device password that is required to unlock the device.
+- Create a device password that is required to unlock the device. This is required to access the "administrator-level" functions of the app such as creating new surveys or saving and uploading results. These features will not run if the device does not have a password set.
 
 Steps to complete each of these security measures may differ on different devices.
 
