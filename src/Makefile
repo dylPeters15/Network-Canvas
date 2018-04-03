@@ -1,7 +1,7 @@
 BUILD_ARTIFACTS = bower_components node_modules platforms plugins
 
 build:
-	npm install
+	npm install --save-exact
 	bower update
 	cordova prepare || cordova prepare
 	cordova build
