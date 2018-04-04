@@ -36,4 +36,4 @@ When using the program to collect sensitive information, we recommend that you t
 Steps to complete each of these security measures may differ on different devices.
 
 ## How to contribute
-The development_notes folder has information about how to contribute to the project or how to download and compile it yourself.
+The docs folder has a README with information about how to contribute to the project or how to download and compile it yourself.

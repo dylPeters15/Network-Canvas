@@ -8,7 +8,14 @@ This is a Cordova-based application designed specifically for Android tablets. I
 
 1. You will need the following dependencies to develop this project:
 	- [git](https://git-scm.com/downloads): This is the version control system used to host and version the files.
-	- [Node.js and npm](https://nodejs.org/en/): This is a version of javascript. It has [Cordova](https://www.npmjs.com/package/cordova) (the cross-platform compiler), [Bower](https://www.npmjs.com/package/bower) (a package manager), and [Grunt](https://www.npmjs.com/package/grunt) (a JavaScript task runner) already packaged with it. 
+	- [Node.js and npm](https://nodejs.org/en/): This is a version of javascript. It has [Cordova](https://www.npmjs.com/package/cordova) (the cross-platform compiler), [Bower](https://www.npmjs.com/package/bower) (a package manager), and [Grunt](https://www.npmjs.com/package/grunt) (a JavaScript task runner) already packaged with it. This project works and builds with **npm version 3.2.0**. In order to install that version, download Node.js from the link above, then run:
+
+	```
+	npm install --global npm@3.2.0
+
+	```
+	
+	
 2. Clone the git repository. 
 
 	```
@@ -24,9 +31,10 @@ This is a Cordova-based application designed specifically for Android tablets. I
 4. Compile and run depending on your debugging method of choice. An in-depth description of debugging methods is below.
 
 ## Building
-1. Install npm packages.
+1. Open a terminal in the `src` folder. Install npm packages.
 
 	```
+	cd src
 	npm install
 	```
 
@@ -98,3 +106,28 @@ As priorities evolve, we will create issues in GitHub for each feature to be add
 4. When issue is solved, rebase on master and squash commits.
 5. Close issue.
 6. At each meeting we will discuss what issues we closed, how the solutions work, and any new issues to be created.
+
+## Tips and Other Notes
+
+### General
+This project began in 2013 as an open-source project from Joshua Melville (@jthrilly) <joshmelville@gmail.com>. It then became a [Codaco](https://github.com/codaco/Network-Canvas) project. In 2017, it was modified by contractors working with Duke University staff in order to make it usable on an advanced time-scale to collect data before the main Codaco project was fully implemented. Then, in 2018, it was worked on by Duke University students in order to make it more flexible and allow Duke researchers to create questionaires themselves without needing to code or understand how the program works. The [Codaco repo](https://github.com/codaco/Network-Canvas) is still under active development as of April 2018. 
+
+As a result of the number of times the project has changed hands, the code base has become significantly disorganized and fractured. At the beginning, the project worked using Grunt to compile many JavaScript files into one file, `src/www/js/main.min.js`, in order run them. These are the JavaScript files found in `src/js`. However, at some point, significant changes were made directly to the main.min.js file, and as a result, it is impossible to work with the smaller modular JavaScript files. Any future changes need to be made in the main.min.js file. The same is true for the css of the application. Any changes need to be made in `src/www/css/style.css`. This project will likely not remain in active development for much longer, as the Codaco project is still under active development and is significantly more organized, but this project is useful for allowing researchers to collect data while the Codaco project is still incomplete. 
+
+### `src` Folder Structure
+
+A description of the basic files inside src is as follows:
+
+|Object|Directory or File|Description|
+|---|---|---|
+|js|Directory|This directory contains many JavaScript files that perform the basic functions of the application. At the beginning of the Network Canvas project, the developer would be able to work with these files, then run a Grunt script to concatenate them all into a single, runnable JavaScript file, but that is no longer possible. Therefore, these files are here simply as a historical artifact. Changes in these files do not affect the application's behavior. To make changes to the application, change the file `src/www/js/main.min.js`.|
+|less|Directory|This directory contains [.less](http://lesscss.org/) files. When the project began, these files would be compiled by a Grunt script and generate css files that would modify the program's appearance. However, as a result of the project's current fragmentation, these files do not do anything. Changing these files will not affect the output or appearance of the program. To do that, work on the file `src/www/css/style.css`.|
+|resources|Directory|This directory contains icons, scripts, and packages needed to compile the application.|
+|www|Directory|This is the main directory where changes will need to be made in order to work on the application. This directory is copied onto the device when the program is run on a device. The www directory contains all of the JavaScript, HTML files, and css files that will run on the device. To make changes to the application, work on either the index.html file or the js/main.min.js file. Then run `cordova run` or `make clean_run` to run the program.|
+|bower.json|file|[Bower](https://bower.io/) is a package manager, similar to npm. This file describes all of the currently installed Bower packages. The Bower file has been out of date since before the beginning of 2018, so it is left in the repo as a historical artifact, but it is not runnable.|
+|config.xml|file|This file describes the Cordova project. It describes the version numbers for plugins and platforms of the Cordova project, as well as permissions. This is the main "table of contents" for the project.|
+|Gruntfile.js|file|[Grunt](https://gruntjs.com/) is a script runner that can be used to help automate production processes. Grunt was the utility that was used in the past on this project to concatenate all of the JavaScript files, compile the .less files into css files, etc., but because all of those processes no longer work, this is left in the repo as a historical artifact.|
+|License.md|file|Describes the license under which this project is produced.|
+|Makefile|file|[Makefile](https://en.wikipedia.org/wiki/Makefile) is a file that automates the compilation of the project. Essentially, it runs a series of command line instructions. For a full list of the instructions in the Makefile, see the section [Makefile - After Initial Setup](https://github.com/dylPeters15/Network-Canvas/tree/master/docs#makefile---after-initial-setup).|
+|package-lock.json|file|This file describes every package installed by npm and its version number. It is recreated every time `npm install` is run. This file changes often, as new updates to those packages are released.|
+|package.json|file|This file describes the first level (not the entire tree, as package-lock.json does) of dependencies. It specifies version ranges but not specific version numbers. This file changes less frequently than package-lock.json, as it does not change when new package updates are released.|
